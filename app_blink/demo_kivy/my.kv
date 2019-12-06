@@ -1,0 +1,44 @@
+
+
+<OutlineApp>:
+
+
+#    test: root.test()
+
+#    BoxLayout:
+#        id : camID
+#        size: 640*3/4, 480*3/4
+#        orientation: "vertical"
+#        center_x: root.width * 1/2
+#        top: root.height * 4.2/5
+    Label:
+        id: lbID
+        top: root.height* 1.4/5
+        orientation: "vertical"
+        center_x: root.width * 1/2
+        text: ""
+        font_size: 18
+
+    Button:
+        id : btn_1_ID
+        center_x: root.width * 1/2
+        top: root.height * 0.8/5
+        text: "CLICK 1"
+        size: 200, 50
+        on_press: root.remove_widget(btn_1_ID)
+        on_press: root.add_widget(btn_2_ID)
+
+    Button:
+        id : btn_2_ID
+        center_x: root.width * 1/2
+        top: root.height * 0.8/5
+        text: "CLICK 2"
+        size: 200, 50
+        on_press: root.remove_widget(btn_2_ID)
+        on_press: root.add_widget(btn_1_ID)
+
+#    ToggleButton:
+#        id:acc_test
+#        text: "down"
+
+

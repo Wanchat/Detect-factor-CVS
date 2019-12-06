@@ -1,0 +1,23 @@
+<BlinkMain>:
+    BoxLayout:
+        id : camID
+        size: 640*3/4, 480*3/4
+        orientation: "vertical"
+        center_x: root.width * 1/2
+        top: root.height * 6/7
+
+    Label:
+        id: lbID
+        top: root.height* 2/7
+        orientation: "vertical"
+        center_x: root.width * 1/2
+        font_size: 16
+
+    ToggleButton:
+        id : btn_1_ID
+        center_x: root.width * 1/2
+        top: root.height * 1/7
+        text: "START"
+        size: 250, 50
+        on_press: root.event_toggle()
+
