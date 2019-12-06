@@ -1,23 +1,22 @@
 import cv2
 import numpy as np
-import dlib
-from face_roi import Extract_eyes                       
+from face_roi import Extract_eyes
 from find_angle_distance import Find_angle_distance
-from text import text
+from text import 
 
 cap = cv2.VideoCapture(0)
 eyes = Extract_eyes()
 
 color = {
-			"white":	(255, 255, 255),
-			"red" : 	(0, 0, 255),
-			"green" : 	(0, 255, 0),
-			"blue" : 	(255, 0, 0),
-			"yellow" : 	(0, 255, 255),
-			"cyan" : 	(255, 255, 0),
-			"magenta" : (255, 0, 255),
-			"black" : 	(0, 0, 0)
-			}
+            "white":    (255, 255, 255),
+            "red" :     (0, 0, 255),
+            "green" :   (0, 255, 0),
+            "blue" :    (255, 0, 0),
+            "yellow" :  (0, 255, 255),
+            "cyan" :    (255, 255, 0),
+            "magenta" : (255, 0, 255),
+            "black" :   (0, 0, 0)
+            }
 
 while True:
     
@@ -47,7 +46,7 @@ while True:
 
         # Draw Rectanngle And Text
         cv2.rectangle(frame, (eye["face"][0],eye["face"][1]), 
-        					(eye["face"][2], eye["face"][3]), color["white"], 1)
+                            (eye["face"][2], eye["face"][3]), color["white"], 1)
 
         text_list = [   ["({}) {:.2f}\N{DEGREE SIGN}".format(status_v_view, 
                             vertical_view ), 15, color["red"]],
@@ -59,13 +58,13 @@ while True:
         x = 5    
                      
         for i_text in text_list:
-        	frame = text(frame, (x+eye["face"][0], abs(y-eye["face"][3])), 
-        				                        i_text[0], i_text[1], i_text[2])
-        	y += 22
+            frame = text(frame, (x+eye["face"][0], abs(y-eye["face"][3])), 
+                                                i_text[0], i_text[1], i_text[2])
+            y += 22
 
     else:
-    	print('No face')
-    	frame = text(frame, (15,10), "Can't detect face !", 20, color["black"])
+        print('No face')
+        frame = text(frame, (15,10), "Can't detect face !", 20, color["black"])
 
     cv2.imshow('out', frame)
 

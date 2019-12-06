@@ -1,7 +1,7 @@
 from PIL import ImageFont, ImageDraw, Image
 import numpy as np
 
-fontpath = "data/Prompt-Regular.ttf"
+fontpath = r"../res/data/Prompt-Regular.ttf"
 
 def text(frame, roi, text, size, color):
     font = ImageFont.truetype(fontpath, size)
